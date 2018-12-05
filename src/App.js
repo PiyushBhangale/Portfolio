@@ -5,6 +5,8 @@ import { withStyles } from '@material-ui/core/styles';
 import SwipeableTemporaryDrawer from './Drawer'
 import AppBar from '@material-ui/core/AppBar';
 import About from './Mycomponents/About'
+import styled from 'styled-components';
+
 import ImageAvatars from './Avtar'
 import AccountBoxIcon from '@material-ui/icons/AccountBox'
 import WorkIcon from '@material-ui/icons/Work'
@@ -18,14 +20,16 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import Work from './Mycomponents/Work'
 const styles={
   barstyles:{
-    height: "50px",
-    backgroundColor: "#2e3039",
+    height: "90px",
+    backgroundColor: "#000",
   },list: {
     width: 250,
 },
+
 fullList: {
     width: 'auto',
 },
+
 btnleft:{
     float: 'left',},
 btnright:{
@@ -35,6 +39,18 @@ iconColor:{
    
 }
 };
+const AppDiv = styled.div`
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-size: 1em;
+  
+`;
+const ContainerDiv = styled.div`
+  margin: 6% 17% 3% 17%;
+  flex: 1;
+  font-family: 'Open Sans', sans-serif;
+  `
 class App extends Component {
   state={
     page:"About",
@@ -69,12 +85,16 @@ class App extends Component {
     );
 
     return (
-      <div className="App">
+      <AppDiv className="AppDiv ">
+      <div className="overlay">
       <AppBar className={classes.barstyles} position="static" >
+      
        <SwipeableTemporaryDrawer sideList={sideList}/>
+       <ContainerDiv>
       {this.state.page === "About"?
+      
       <About>
-
+    
       </About>:
       this.state.page === "Work"?
       <Work>
@@ -82,10 +102,10 @@ class App extends Component {
       </Work>:null
       }
          
-    
+      </ContainerDiv>
       </AppBar>
-        
       </div>
+      </AppDiv>
     );
   }
 }

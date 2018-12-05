@@ -11,6 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import ImageAvatars from './Avtar'
+import Typography from '@material-ui/core/Typography';
 import AccountBoxIcon from '@material-ui/icons/AccountBox'
 import WorkIcon from '@material-ui/icons/Work'
 import ViewHeadlineIcon from '@material-ui/icons/ViewHeadline'
@@ -28,8 +29,14 @@ const styles = {
     float: 'right',},
     iconColor:{
         color: "#fff",
+        marginTop:"15px",
        
-    }
+    },
+    grow: {
+      flexGrow: 1,
+      marginTop:"20px",
+      textAlign:"center",
+  },
     
 };
 
@@ -76,6 +83,9 @@ class SwipeableTemporaryDrawer extends React.Component {
       <div>
         <Button className={classes.btnleft} onMouseEnter={this.toggleDrawer('left', true)} onClick={this.toggleDrawer('left', true)}><ViewHeadlineIcon fontSize={"large"} className={classes.iconColor}/></Button>
         <Button className={classes.btnright} onMouseEnter={this.toggleDrawer('right', true)} onClick={this.toggleDrawer('right', true)}>Open Right</Button>
+        <Typography variant="h4" color="inherit" className={classes.grow}>
+           <code>Portfolio</code>
+        </Typography>
         <SwipeableDrawer
           open={this.state.left}
           onClose={this.toggleDrawer('left', false)}
