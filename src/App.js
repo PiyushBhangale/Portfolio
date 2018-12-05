@@ -6,7 +6,7 @@ import SwipeableTemporaryDrawer from './Drawer'
 import AppBar from '@material-ui/core/AppBar';
 import About from './Mycomponents/About'
 import styled from 'styled-components';
-
+import Skills from './Mycomponents/Skills'
 import ImageAvatars from './Avtar'
 import AccountBoxIcon from '@material-ui/icons/AccountBox'
 import WorkIcon from '@material-ui/icons/Work'
@@ -74,7 +74,7 @@ class App extends Component {
         </List>
         <Divider />
         <List>
-          {['About', 'Work', 'Spam'].map((text, index) => (
+          {['About', 'Work', 'Skills'].map((text, index) => (
             <ListItem button key={text}  onClick={this.clicked.bind(this,text)}>
               <ListItemIcon> {index === 0 ?<AccountBoxIcon />:index === 1? <WorkIcon />:null}</ListItemIcon>
               <ListItemText primary={text} />
@@ -99,7 +99,12 @@ class App extends Component {
       this.state.page === "Work"?
       <Work>
 
-      </Work>:null
+      </Work>:
+      this.state.page === "Skills"?
+      <Skills>
+
+      </Skills>:null
+      
       }
          
       </ContainerDiv>
